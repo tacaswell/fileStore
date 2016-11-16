@@ -4,7 +4,11 @@ from ._version import get_versions
 __version__ = get_versions()['version']
 del get_versions
 
-from .fs import FileStore, FileStoreRO
+try:
+    from .fs import FileStore, FileStoreRO
+except ImportError:
+    pass
+
 from .core import DatumNotFound
 
 from .handlers_base import HandlerBase
